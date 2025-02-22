@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.2'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation 'org.springframework.boot:spring-boot-starter'
+
+    // Web (for REST APIs)
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    // Lombok (to reduce boilerplate code)
+    implementation 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // DevTools (for hot reload)
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    // Actuator (Monitoring)
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+    // Testing
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+}
+
+test {
+    useJUnitPlatform()
+}

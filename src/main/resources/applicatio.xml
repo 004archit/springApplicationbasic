@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Defining a Bean -->
+    <bean id="myBean" class="org.example.beans.UserConfig">
+        <property name="name" value="Archit"/>
+        <property name="className" value="dasvi"/>
+    </bean>
+    <bean id="userService" class="org.example.beans.services.UserService">
+        <constructor-arg ref="myBean"/>
+    </bean>
+    <bean id="orderService" class="org.example.beans.services.OrderService" factory-method="createInstance">
+        <constructor-arg ref="myBean"/>
+        <constructor-arg ref="userService"/>
+    </bean>
+
+</beans>
